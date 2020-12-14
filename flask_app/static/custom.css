@@ -1,0 +1,14 @@
+.center {
+    text-align: center;
+}
+
+.product_pics {
+  max-width: 500px;
+  max-height: 500px;
+  height: auto;
+  width: auto;
+}
+
+.propic {
+  max-width: 50%;
+}

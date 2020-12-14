@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap Dependencies -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Styling Dependencies -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+
+    <style>
+        .center {
+            text-align: center;
+        }
+
+        .product_pics {
+            max-width: 200px;
+            max-height: 200px;
+            height: auto;
+            width: auto;
+        }
+
+        .propic {
+            max-width: 50%;
+        }
+    </style>
+
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Style Guide</title>
+    {% endif %}
+</head>
+<body>
+    {% block header %}
+    <h1>Will be overriden</h1>
+    {% endblock %}
+
+    <!-- Footer -->
+    <div class="jumbotron text-center" style="margin-bottom:0px; background-color:#d5befa; font-family:'Poppins',sans-serif; font-size:15px;"> 
+        <footer>
+            <p>Styles, Copyright &copy; 2020</p>
+            <a id="top-of-page" href="#">Top</a>
+        </footer>
+    </div>
+
+    <!--
+    {% block footer %}
+    <h1>Will be overriden</h1>
+    {% endblock %}
+    -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</body>
+</html>

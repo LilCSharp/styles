@@ -1,0 +1,64 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="col">
+    Do you have an account? If not, register <a href="{{ url_for('users.register') }}">here!</a>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div class="center">
+                <img alt="No Image Available" src="https://www.birchgrovedental.co.uk/wp-content/uploads/2016/01/empty-person.jpg" class="rounded-circle" />
+            </div>
+
+            <h3>
+                Login
+            </h3>
+
+            <form action="" method="post">
+                {{ form.csrf_token }}
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label green-text") }}
+                    {{ form.username(class="form-control form-control-md") }}
+    
+                    {% if form.username.errors %}
+                    <div class="alert alert-warning" role="alert">
+                        {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password(class="form-control form-control-lg") }}
+    
+                    {% if form.password.errors %}
+                    <div class="alert alert-warning" role="alert">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="form-control form-control-lg") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

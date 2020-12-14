@@ -1,0 +1,62 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="row">
+    <div class="col">
+        {# Profile picture #}
+        <img class="propic w-50" src="data:image/png;base64,{{image}}" alt="image">
+    </div>
+    <div class="col">
+        {# Greeting #}
+        <h3>Hello, {{ current_user.username }}</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {# Username Update Form #}
+
+        <div class="container">
+            <form method="POST" action="">
+                {{ userForm.csrf_token }}
+                <div class="form-group">
+                    {{ userForm.username.label }}
+                    {{ userForm.username(class="form-control") }}
+                </div>
+
+                {% if userForm.username.errors %}
+                    <div class="alert alert-warning" role="alert">
+                        {% for error in userForm.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {{ userForm.submit() }}
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {# Profile Picture Update Form #}
+
+        <div class="container">
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ picForm.csrf_token }}
+                <div class="form-group">
+                    {{ picForm.picture }}
+                </div>
+                
+                {% if picForm.picture.errors %}
+                    <div class="alert alert-warning" role="alert">
+                        {% for error in picForm.picture.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {{ picForm.submit() }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
